@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+import FormPokemon from './components/FormPokemon';
+import { Container, Typography, Box } from '@material-ui/core';
 import './App.css';
+
+const styles = {
+  padding: "1em",
+  textAlign: "center"
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Container component="main" maxWidth="sm" style={{height: '100vh'}}>
+    <Box 
+      display="flex" 
+      flexDirection="column" 
+      justifyContent="center" 
+      alignItems="center" 
+      style={{height: '100%'}}
+    >
+      <Typography 
+        component="h1" 
+        variant="h3"
+        style={styles}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+        Welcome to the Pokemon Playground
+      </Typography>
+      <FormPokemon />
+    </Box>
+      
+    </Container>
   );
 }
 
