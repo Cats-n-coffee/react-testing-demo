@@ -69,7 +69,6 @@ export default function FormTest(props) {
                 
             </Grid>
                     <Collapse 
-                        component="div" 
                         in={submitMsg}
                         style={{textAlign: "center", padding: '2em', color: 'blueviolet'}}
                     >

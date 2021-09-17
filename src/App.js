@@ -1,7 +1,6 @@
-import FormPokemon from './components/FormPokemon';
 import { Container, Typography, Box } from '@material-ui/core';
 import './App.css';
-import FormTest from './components/FormTest';
+import HomePage from './components/HomePage';
 
 const styles = {
   padding: "1em",
@@ -25,8 +24,7 @@ function App() {
         >
         Welcome to the Pokemon Playground
       </Typography>
-      {/* <FormPokemon /> */}
-      <FormTest/>
+      <HomePage />
     </Box>
       
     </Container>
