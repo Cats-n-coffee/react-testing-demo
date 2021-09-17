@@ -1,7 +1,12 @@
 import React from 'react'
+import { Typography } from '@material-ui/core'
 
 export default function Cards(props) {
     return (
-        <p>Alllll the cards</p>
+        <div>
+            <Typography component="h2" variant="h4">
+                All cards
+            </Typography>
+        </div>
     )
 }
