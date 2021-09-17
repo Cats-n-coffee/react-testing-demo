@@ -9,7 +9,7 @@ const styles = {
 
 function App() {
   return (
-    <Container component="main" maxWidth="sm" style={{height: '100vh'}}>
+    <Container component="div" maxWidth="sm" style={{height: '100vh'}}>
     <Box 
       display="flex" 
       flexDirection="column" 

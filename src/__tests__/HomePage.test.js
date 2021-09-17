@@ -15,7 +15,11 @@ describe('the router works for all routes', () => {
         render(<MemoryRouter initialEntries={['/cards']}>
                     <HomePage />
                 </MemoryRouter>)
-  
+        
+        // the home page displays the cards by default
+        const homePage = screen.getByRole('heading', {name: /all cards/i})
+        expect(homePage).toBeInTheDocument();
+
         const formLink = screen.getByRole('link', {name: /form/i})
         userEvent.click(formLink);
         const formPage = screen.getByRole('heading', {name: /pokemon submission/i})
@@ -33,8 +37,6 @@ describe('the router works for all routes', () => {
         expect(cardsPage).toBeInTheDocument()
     })
 })
-
-// need to test the routes --> see in the react router docs
 
 // Next to do: 
 // - find a pokemon api
