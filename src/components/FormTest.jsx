@@ -13,9 +13,17 @@ export default function FormTest(props) {
     const [submitMsg, setSubmitMsg] = React.useState(false)
 
     function handleSubmit(e) {
-        e.preventDefault()
-        console.log({pokemonName, pokemonType, pokemonLevel})
-        setSubmitMsg(!submitMsg)
+        e.preventDefault();
+        const info = {pokemonName, pokemonType, pokemonLevel};
+        console.log(info);
+        
+        fetch('/add', {
+            method: 'POST',
+            body: JSON.stringify(info)
+        })
+        .then(res => res.json())
+        .then(data => setSubmitMsg(data))
+        .catch(err => console.log(err))
         setPokemonName('')
         setPokemonType('')
         setPokemonLevel('')

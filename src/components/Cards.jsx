@@ -4,31 +4,20 @@ import { Typography } from '@material-ui/core';
 
 export default function Cards(props) {
     const [input, setInput] = React.useState('');
-    const [name, setName] = React.useState('');
     const [pokemon, setPokemon] = React.useState('');
 
     function handleSubmit(e) {
         e.preventDefault();
         console.log('submit');
-        setName(input)
-        setInput('');
-    }
 
-    React.useEffect(() => {
-        if (!name) return;
-        const abortCtrl = new AbortController();
-        const opts = { signal: abortCtrl.signal };
-
-        fetch(`https://pokeapi.co/api/v2/pokemon/${name}`, opts)
+        fetch(`https://pokeapi.co/api/v2/pokemon/${input}`)
         .then(res => res.json())
         .then(data => {
             setPokemon(data)
-            setName('')
+            setInput('')
         })
         .catch(err => console.error(err))
-
-        return () => abortCtrl.abort();
-    }, [name])
+    }
 
     return (
         <div>
