@@ -22,7 +22,7 @@ function App() {
         variant="h3"
         style={styles}
         >
-        Welcome to the Pokemon Playground
+        Pokemon Playground
       </Typography>
       <HomePage />
     </Box>

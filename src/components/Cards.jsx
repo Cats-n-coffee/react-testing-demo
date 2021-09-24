@@ -13,6 +13,7 @@ export default function Cards(props) {
         fetch(`https://pokeapi.co/api/v2/pokemon/${input}`)
         .then(res => res.json())
         .then(data => {
+            console.log(data)
             setPokemon(data)
             setInput('')
         })
@@ -21,20 +22,27 @@ export default function Cards(props) {
 
     return (
         <div>
-            <form onSubmit={(e) => handleSubmit(e)}>
-                <label>Pokemon Name:</label>
+            <form 
+                onSubmit={(e) => handleSubmit(e)}
+                aria-label="search-form"
+            >
+                <label htmlFor="pokemon-name">Pokemon Name:</label>
                 <input 
                     type="text" 
+                    id="pokemon-name"
                     name="pokemon-name"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                 />
                 <button type="submit">Submit</button>
             </form>
-            <Typography component="h2" variant="h4">
-                All cards
-            </Typography>
-            <Card pokemon={pokemon}/>
+            <h2>All cards</h2>
+            <section aria-label="all-cards">
+                {
+                    pokemon ? <Card pokemon={pokemon}/> : null
+                }
+            </section>
+            
         </div>
     )
 }
