@@ -10,8 +10,8 @@ test('it should be on the screen', () => {
     expect(searchForm).toBeInTheDocument();
 })
 
-describe('it should take user input and make a request', () => {
-    it('should take user input and build the query', async() => {
+describe('it should take user input and add the card to the screen', () => {
+    it('should take user input and return the pokemon', async() => {
         const cards = render(<Cards />)
 
         const searchInput = screen.getByLabelText(/pokemon name/i)
@@ -23,4 +23,5 @@ describe('it should take user input and make a request', () => {
         const cardsSection = screen.getByRole('region', {name: /all-cards/i})
         await waitFor(() => expect(cardsSection).toHaveTextContent('mew')) 
     })
-})
+}) // in this test suite, after the cards feature in implemented with an array
+// it should check for array length

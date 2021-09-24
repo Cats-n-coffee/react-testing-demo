@@ -50,4 +50,4 @@ export default function Cards(props) {
 // inside this component:
 // add a short *form* for searching a pokemon by name or by category
 // we need another component for the *card component*
-// we need *state* to have all the pokemon searches from the user and *display all the searched pokemon*
+// we need *state* to have all the pokemon searches from the user and *display all the searched pokemon* --> use an array to store so we can test
