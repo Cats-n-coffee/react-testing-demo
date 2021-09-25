@@ -4,7 +4,7 @@ import { Typography } from '@material-ui/core';
 
 export default function Cards(props) {
     const [input, setInput] = React.useState('');
-    const [pokemon, setPokemon] = React.useState('');
+    const [pokemons, setPokemons] = React.useState([]);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -14,7 +14,7 @@ export default function Cards(props) {
         .then(res => res.json())
         .then(data => {
             console.log(data)
-            setPokemon(data)
+            setPokemons([...pokemons, data])
             setInput('')
         })
         .catch(err => console.error(err))
@@ -39,7 +39,14 @@ export default function Cards(props) {
             <h2>All cards</h2>
             <section aria-label="all-cards">
                 {
-                    pokemon ? <Card pokemon={pokemon}/> : null
+                    pokemons ? pokemons.map(pokemon => (
+                            <Card 
+                                key={pokemon.name}
+                                pokemon={pokemon}
+                            />
+                        )
+                    ) 
+                    : null
                 }
             </section>
             

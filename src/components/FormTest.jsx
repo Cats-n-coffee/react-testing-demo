@@ -17,7 +17,7 @@ export default function FormTest(props) {
         const info = {pokemonName, pokemonType, pokemonLevel};
         console.log(info);
         
-        fetch('/add', {
+        fetch('/add', { // let's pretend we have the api's domain in .env
             method: 'POST',
             body: JSON.stringify(info)
         })
