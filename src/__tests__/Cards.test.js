@@ -28,20 +28,23 @@ describe('it should take user input and add the card to the screen', () => {
         const searchInput1 = screen.getByLabelText(/pokemon name/i)
         userEvent.type(searchInput1, 'pikachu');
 
-        const submitButton1 = screen.getByRole('button', {name: /submit/i})
-        userEvent.click(submitButton1);
+        const submitButton = screen.getByRole('button', {name: /submit/i})
+        userEvent.click(submitButton);
 
         //const cardsSection = screen.getByRole('region', {name: /all-cards/i})
-        const pokemon = screen.findAllByLabelText(/pokemon/i);
-        screen.debug()
-        await waitFor(() => expect(pokemon).toHaveTextContent('pikachu')) 
+    
+        //await waitFor(() => expect(pokemon).toHaveTextContent('pikachu')) 
+        userEvent.clear(searchInput1)
         
         const searchInput2 = screen.getByLabelText(/pokemon name/i)
         userEvent.type(searchInput2, 'mew');
 
-        const submitButton2 = screen.getByRole('button', {name: /submit/i})
-        userEvent.click(submitButton2);
+        //const submitButton2 = screen.getByRole('button', {name: /submit/i})
+        userEvent.click(submitButton);
         
-        await waitFor(() => expect(pokemon).toHaveTextContent('mew')) 
+        const pokemon = screen.findAllByLabelText(/pokemon-searched/i);
+        screen.debug()
+        //await waitFor(() => expect(pokemon).toHaveLength(2)) 
+        expect(pokemon).toHaveLength(2)
     })
 }) 
