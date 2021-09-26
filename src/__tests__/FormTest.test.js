@@ -3,9 +3,6 @@ import userEvent from '@testing-library/user-event'
 import FormTest from "../components/FormTest";
 import {server} from '../mocks/server';
 
-beforeAll(() => server.listen());
-afterAll(() => server.close());
-
 test('Form pokemon should render', () => {
     render(<FormTest />)
 

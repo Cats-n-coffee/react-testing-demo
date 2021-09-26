@@ -5,7 +5,7 @@ export default function Card(props) {
 
     //console.log(pokemon)
     return (
-        <div>
+        <div aria-label="pokemon">
             <h2>{pokemon.name}</h2>
         </div>
     )

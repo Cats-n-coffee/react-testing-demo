@@ -39,14 +39,13 @@ export default function Cards(props) {
             <h2>All cards</h2>
             <section aria-label="all-cards">
                 {
-                    pokemons ? pokemons.map(pokemon => (
-                            <Card 
-                                key={pokemon.name}
-                                pokemon={pokemon}
-                            />
+                    pokemons?.map(pokemon => (
+                            <React.Fragment key={pokemon.name}>
+                                <Card  pokemon={pokemon}/>
+                                <hr />
+                            </React.Fragment>
                         )
-                    ) 
-                    : null
+                    )
                 }
             </section>
             

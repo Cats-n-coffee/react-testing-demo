@@ -8,3 +8,6 @@ import { server } from './mocks/server'
 beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
+
+// Set up for the whole app
+// Gets run before everything else
