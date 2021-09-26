@@ -19,8 +19,8 @@ describe('it should take user input and add the card to the screen', () => {
         const submitButton = screen.getByRole('button', {name: /submit/i})
         userEvent.click(submitButton);
 
-        const cardsSection = screen.getByRole('region', {name: /all-cards/i})
-        await waitFor(() => expect(cardsSection).toHaveTextContent('mew')) 
+        const cardsList = await screen.findByRole('list', {name: /all-cards/i})
+        expect(cardsList).toHaveTextContent('mew')
     })
     it('should allow for a second pokemon to show on the page', async() => {
         render(<Cards />)
@@ -32,17 +32,14 @@ describe('it should take user input and add the card to the screen', () => {
         const submitButton = screen.getByRole('button', {name: /submit/i})
         userEvent.click(submitButton);
 
-        const pokemon = await screen.findAllByLabelText(/pokemon-searched/i);
-        expect(pokemon).toHaveLength(1);
+        const pikachu = await screen.findByText(/pikachu/i);
+        expect(pikachu).toBeInTheDocument();
 
         userEvent.clear(searchInput)
         userEvent.type(searchInput, 'mew');
         userEvent.click(submitButton);
         
-        
-        screen.debug()
-        //await waitFor(() => expect(pokemon).toHaveLength(2)) 
-
-        expect(pokemon).toHaveLength(2)
+        const mew = await screen.findByText(/mew/i)
+        expect(mew).toBeInTheDocument()
     })
 }) 

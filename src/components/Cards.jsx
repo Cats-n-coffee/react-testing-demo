@@ -37,7 +37,7 @@ export default function Cards(props) {
                 <button type="submit">Submit</button>
             </form>
             <h2>All cards</h2>
-            <section aria-label="all-cards">
+            <ul aria-label="all-cards">
                 {
                     pokemons?.map(pokemon => (
                             <React.Fragment key={pokemon.name}>
@@ -47,7 +47,7 @@ export default function Cards(props) {
                         )
                     )
                 }
-            </section>
+            </ul>
             
         </div>
     )
